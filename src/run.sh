@@ -12,8 +12,8 @@ fi
 
 START_TIME=$(date +%s)
 echo "# Starting to process type $TYPE model $MODEL $PROBES_TXT"
-
-python3 -m garak --model_type "$TYPE" --model_name "$MODEL" $PROBES --report_prefix $PREFIX
+python3 -m garak --model_type "$TYPE" --model_name "$MODEL" $PROBES --report_prefix $(pwd)/"$PREFIX"
+#python -m garak --model_type huggingface --model_name gpt2 --probes lmrc.Profanity
 echo "# End process"
 ELAPSED=$(($(date +%s) - START_TIME))
 printf "elapsed: %s\n\n" "$(date -d@$ELAPSED -u +%H\ hours\ %M\ min\ %S\ sec)"
